@@ -3,7 +3,7 @@ import React from 'react'
 const CountryCard = ({country, id}) => {
 
   return (
-    <div id={id}>CountryCard</div>
+    <div id={id}>{country.name} {id}</div>
   )
 }
 
