@@ -16,7 +16,7 @@ const Home = () => {
         const response = await fetch("http://localhost:3500/countries")
         countryData = await response.json();
       } else {
-        const response = await fetch(`http://localhost:3500/countries/${region}`)
+        const response = await fetch(`https://restcountries.com/v3.1/region/${region}`)
         countryData = await response.json();
       }
 
@@ -29,6 +29,7 @@ const Home = () => {
 
   return (
     <div>
+      {console.log(countries)}
       <Menu setCountries={setCountries} />
       <Countries countries={countries} />
     </div>
