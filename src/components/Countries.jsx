@@ -5,9 +5,9 @@ const Countries = ({ countries }) => {
 
 
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-5">
       {
-        countries.map((country, id) => <CountryCard country={country} id={id} />) 
+        countries.map((country, id) => <CountryCard country={country} key={id} />)
       }
     </div>
   )
