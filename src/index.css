@@ -1,4 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+    :root{
+        --color-bg-light: hsl(0, 0%, 98%);
+        --color-bg-dark:  hsl(207, 26%, 17%);
+        --color-text-light: hsl(200, 15%, 8%);
+        --color-element-dark: hsl(209, 23%, 22%);
+        --color-input-dark: hsl(0, 0%, 52%);
+        --color-text-dark: hsl(0, 0%, 100%);
+    }
+}
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
