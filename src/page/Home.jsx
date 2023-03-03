@@ -1,36 +1,28 @@
 import React from 'react';
 
-import Menu from "../components/Menu";
+import TextSearch from "../components/TextSearch";
 import { useState, useEffect } from 'react';
 import Countries from '../components/Countries';
+import useDebounce from '../utilities/useDebounce';
+import DropDown from '../components/DropDown';
+
+
 
 const Home = () => {
+  const [text, setText] = useState("Filter by Region");
   const [countries, setCountries] = useState([]);
-  const [region, setRegion] = useState("all");
+  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    const fetchCountryData = async () => {
-      let countryData = [];
+  const searched = useDebounce(search);
 
-      if(region === "all") {
-        const response = await fetch("http://localhost:3500/countries")
-        countryData = await response.json();
-      } else {
-        const response = await fetch(`https://restcountries.com/v3.1/region/${region}`)
-        countryData = await response.json();
-      }
-
-      setCountries(countryData);
-    }
-
-    fetchCountryData();
-  }
-  , [])
 
   return (
-    <div>
-      {console.log(countries)}
-      <Menu setCountries={setCountries} />
+    <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 md:justify-between md:flex-row md:items-center">
+       <TextSearch search={search}  setSearch={setSearch} />
+       <DropDown text={text} setText={setText} />
+      </div>
+      
       <Countries countries={countries} />
     </div>
   )
