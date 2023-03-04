@@ -6,6 +6,8 @@ import Countries from '../components/Countries';
 import useDebounce from '../utilities/useDebounce';
 import DropDown from '../components/DropDown';
 
+import { fetchAllCountries } from '../utilities/utilities';
+
 
 
 const Home = () => {
@@ -15,6 +17,12 @@ const Home = () => {
 
   const searched = useDebounce(search);
 
+  useEffect(() => {
+    const getCountries = async() => {
+      setCountries(await fetchAllCountries());
+    }
+    getCountries();
+  },[])
 
   return (
     <div className="flex flex-col gap-12">
