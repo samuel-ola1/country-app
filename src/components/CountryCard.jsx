@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CountryCard = ({name, population, capital, region, imgUrl}) => {
 
   return (
-    <Link to={`/country/${name}`} className="bg-bgLight dark:bg-darkInputText h-[24-rem] w-[16rem] sm:w-[18rem] shadow-xl" >
+    <Link to={`/country/${name}`} className="bg-bgLight dark:bg-darkInputText h-[24-rem] w-[15rem] shadow-xl" >
         <div className="flex flex-col">
           <div><img src={imgUrl} alt="" /></div>
           <div>

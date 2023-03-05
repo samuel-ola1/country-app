@@ -6,7 +6,7 @@ const Countries = ({ countries }) => {
   
 
   return (
-    <div className="grid gap-10 mx-auto md:mx-0 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid mx-0 gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-5">
       {
         countries.map((country, id) => (
           <CountryCard 

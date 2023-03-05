@@ -18,10 +18,10 @@ function App() {
   return (
     <div className="bg-bgLight dark:bg-bgDark">
       <Header theme={theme} setTheme={setTheme}/>
-      <div className="px-4 md:px-24 py-16 text-lightText dark:darkText">
+      <div className="mx-[5rem] py-16 text-lightText dark:text-darkText">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="country/:name" element={<CountryInfo/>} />
+          <Route path="/country/:name" element={<CountryInfo/>} />
         </Routes>
       </div>
     </div>

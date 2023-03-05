@@ -6,7 +6,7 @@ import Countries from '../components/Countries';
 import useDebounce from '../utilities/useDebounce';
 import DropDown from '../components/DropDown';
 
-import { fetchAllCountries } from '../utilities/utilities';
+import { fetchAllCountries, fetchByRegion, fetchBySearchEntry } from '../utilities/utilities';
 
 
 
@@ -23,6 +23,20 @@ const Home = () => {
     }
     getCountries();
   },[])
+
+  useEffect(() => {
+    const fetchRegion = async () => {
+      setCountries(await fetchByRegion(text));
+    }
+    fetchRegion();
+  }, [text])
+
+  useEffect(() => {
+    const searchCountries = async () => {
+      setCountries(await fetchBySearchEntry(searched))
+    }
+    searchCountries()
+  },[searched])
 
   return (
     <div className="flex flex-col gap-12">

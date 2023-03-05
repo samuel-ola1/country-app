@@ -11,7 +11,7 @@ const Header = ( {theme, setTheme} ) => {
 
 
   return (
-    <header className="bg-bgLight shadow-3xl dark:shadow-2xl dark:bg-bgDarkHeader  flex justify-between items-center px-4 md:px-24 py-6">
+    <header className="bg-bgLight shadow-3xl dark:shadow-2xl dark:bg-bgDarkHeader flex justify-between items-center  md:px-24 py-6">
       <div><h2 className="font-extrabold text-xl md:text-2xl text-lightText dark:text-darkText">Where in the world?</h2></div>
       <div onClick={toggleMode} className="cursor-pointer">
         { theme === "dark" ? (
