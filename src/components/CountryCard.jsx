@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const CountryCard = ({name, population, capital, region, imgUrl}) => {
 
   return (
-    <Link to={`/country/${name}`} className="bg-bgLight dark:bg-darkInputText h-[20rem] w-[15rem] shadow-xl flex flex-col block justify-stretch" >
-          <div className=""><img className="w-[100%]" src={imgUrl} alt="" /></div>
-          <div>
-            <h3>{name}</h3>
-            <h4>{population}</h4>
-            <h4>{region}</h4>
-            <h4>{capital}</h4>
+    <Link to={`/country/${name}`} className="bg-bgLight dark:bg-darkInputText h-[19rem] w-[16rem] shadow-xl flex flex-col dark:bg-bgDarkHeader" >
+          <div className="h-[50%]"><img className="w-[100%] h-[100%] object-cover" src={imgUrl} alt="country flag" /></div>
+          <div className="px-3">
+            <div><h3 className="font-bold py-3 leading-4">{name}</h3></div>
+            <div><span className="font-semibold">Population: </span><span>{population}</span></div>
+            <div><span className="font-semibold">Region: </span><span>{region}</span></div>
+            <div><span className="font-semibold">Capital: </span><span>{capital}</span></div>
           </div>
     </Link>
   )

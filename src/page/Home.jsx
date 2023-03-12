@@ -8,12 +8,11 @@ import DropDown from '../components/DropDown';
 
 import { fetchAllCountries, fetchByRegion, fetchBySearchEntry } from '../utilities/utilities';
 
-
-
 const Home = () => {
   const [text, setText] = useState("Filter by Region");
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
+
 
   const searched = useDebounce(search);
 
@@ -39,7 +38,7 @@ const Home = () => {
   },[searched])
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-12 px-5">
       <div className="flex flex-col gap-12 md:justify-between md:flex-row md:items-center">
        <TextSearch search={search}  setSearch={setSearch} />
        <DropDown text={text} setText={setText} />

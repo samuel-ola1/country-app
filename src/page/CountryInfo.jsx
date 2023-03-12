@@ -9,13 +9,14 @@ const CountryInfo = () => {
   const [country, setCountry] = useState([]);
   const { name } = useParams();
   const [countries, setCountries] = useState([]);
+  
 
   useEffect(() => {
     const getCountries = async() => {
       setCountries(await fetchAllCountries());
     }
     getCountries();
-    console.log(countries)
+    // console.log(countries)
   },[])
 
   useEffect(() => {
@@ -31,59 +32,61 @@ const CountryInfo = () => {
   )
   
   return (
-    <div className='flex flex-col gap-16 md:flex-col px-4 md:px-0 md:h-[72.6vh] lg-[73.3vh]'>
-      <Link to="/" className='shadow-xl px-8 py-2 rounded-md bg-bgLight dark:bg-darkTextInput w-fit'>
+    <div className='flex flex-col gap-9 mx-3 h-screen'>
+      <Link to="/" className='shadow-xl px-8 py-2 rounded-md bg-bgLight dark:bg-bgDark w-fit text-center'>
         <FontAwesomeIcon icon={faArrowLeft} />
-        <span>Back</span>
+        <span className="pl-2">Back</span>
       </Link>
-      <div>
-        <div className='flex flex-col gap-2'>
-          <div>
-            <img src={country[0].flags.svg} alt="" />
+      
+        <div className='flex flex-col gap-2 tablet:flex-row tablet:gap-4'>
+          <div className=' tablet:w-[50%]'>
+            <img className=" object-cover" src={country[0].flags.svg} alt="" />
           </div>
-          <div>
-            {console.log(country[0].borders)}
-            <div>
-              <h1>{country[0].name.common}</h1>
 
-              {country[0]?.name?.nativeName?.nld?.common.length ? (
-                  <h3>Native Name: {country[0]?.name?.nativeName?.nld?.common}</h3>         
-              ): null}
-              <h3>Population: {country[0]?.population.toLocaleString()}</h3>
-              <h3>Region: {country[0].region}</h3>
-              <h3>Sub Region: {country[0].subregion}</h3>
-              <h3>Capital: {country[0].capital}</h3>
-            </div>
+          <div className="flex flex-col gap-3">
+            
+            <div className="tablet:flex justify-center items-center gap-2 ">
+              <div className='mt-5'>
+                <div>
+                  <h1 className="font-bold text-3xl my-4">{country[0].name.common}</h1>
+                </div>
 
-            <div>
-              <h3>Top Level Domain: {country.topLevelDomain}</h3>
-              <h3>Currencies: {country[0]?.currencies[Object.keys(country[0]?.currencies)[0]].name}</h3>
-              <h3>Languages: {Object.values(country[0]?.languages).map((language, index) => (
-                <span key={index} className="">{language}</span>
-              ))}</h3>
+                {country[0]?.name?.nativeName?.nld?.common.length ? (
+                    <div><span className="font-semibold">Native Name: </span><span> {country[0]?.name?.nativeName?.nld?.common}</span></div>        
+                ): null}
+                <div><span className="font-semibold">Population: </span><span>{country[0]?.population.toLocaleString()}</span></div>
+                <div><span className="font-semibold">Region:</span> <span>{country[0].region}</span></div>
+                <div><span className="font-semibold">Sub Region: </span><span> {country[0].subregion}</span></div>
+                <div><span className="font-semibold">Capital: </span><span>{country[0].capital}</span></div>
+              </div>
+
+              <div>
+                <div><span className="font-semibold">Top Level Domain: </span><span>{country[0].topLevelDomain}</span></div>
+                <div><span className="font-semibold">Currencies: </span><span>{country[0]?.currencies[Object.keys(country[0]?.currencies)[0]].name}</span></div>
+                <div>
+                  <span className="font-semibold">Languages: </span> {Object.values(country[0]?.languages).map((language, index) => (
+                      <span key={index} className="">{language}, </span>
+                    ))}
+                </div>
+              </div>
             </div>
-            <div>
+            
+
                 {
-                  country[0].borders.length ? 
-                    <div>
-                      <h3>Border Countries: </h3> Border Countries: {
-                        country[0].borders?.map((border) => (
-                      <span>{border}</span>
-                      ))
-                     }
+                  country[0]?.borders.length ? 
+                    <div className="">
+                      <div className="font-semibold">Border Countries: </div>
+                      <div className="flex flex-wrap gap-2">{
+                         country[0].borders?.map((border, index) => (
+                          <span className="px-5 shadow-xl bg-bgLight py-2 rounded-md dark:bg-bgDark" key={index}>{border} </span>
+                            ))}
+                      </div>
                     </div>
                   : null
                 
                 }
-            
-            </div>
           </div>
         </div>
-
-        <div>
-          
-        </div>
-      </div>
 
     </div>
   )
