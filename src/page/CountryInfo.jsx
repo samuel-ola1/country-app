@@ -32,15 +32,15 @@ const CountryInfo = () => {
   )
   
   return (
-    <div className='flex flex-col gap-9 mx-3 h-screen'>
+    <div className='flex flex-col gap-9 mx-3 min-h-screen'>
       <Link to="/" className='shadow-xl px-8 py-2 rounded-md bg-bgLight dark:bg-bgDark w-fit text-center'>
         <FontAwesomeIcon icon={faArrowLeft} />
         <span className="pl-2">Back</span>
       </Link>
       
         <div className='flex flex-col gap-2 tablet:flex-row tablet:gap-4'>
-          <div className=' tablet:w-[50%]'>
-            <img className=" object-cover" src={country[0].flags.svg} alt="" />
+          <div className='basis-1/2'>
+            <img className="" src={country[0].flags.svg} alt="" />
           </div>
 
           <div className="flex flex-col gap-3">
@@ -74,7 +74,7 @@ const CountryInfo = () => {
 
                 {
                   country[0]?.borders.length ? 
-                    <div className="">
+                    <div className="flex-grow">
                       <div className="font-semibold">Border Countries: </div>
                       <div className="flex flex-wrap gap-2">{
                          country[0].borders?.map((border, index) => (
